@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dealer: one
+  customer: one
+  watch: one
+  sale_date: 2023-07-12
+  sale_quantity: 1
+
+two:
+  dealer: two
+  customer: two
+  watch: two
+  sale_date: 2023-07-12
+  sale_quantity: 1
