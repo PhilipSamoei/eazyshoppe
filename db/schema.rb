@@ -14,7 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_202052) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "contact"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_202052) do
     t.string "name"
     t.string "address"
     t.string "contact"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,14 +44,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_202052) do
   end
 
   create_table "watches", force: :cascade do |t|
+    t.integer "dealer_id", null: false
     t.string "name"
     t.string "brand"
     t.decimal "price"
+    t.string "image_url"
+    t.string "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dealer_id"], name: "index_watches_on_dealer_id"
   end
 
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "dealers"
   add_foreign_key "sales", "watches"
+  add_foreign_key "watches", "dealers"
 end
